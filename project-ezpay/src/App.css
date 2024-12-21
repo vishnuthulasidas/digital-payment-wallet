@@ -1,0 +1,49 @@
+
+a.active>p {
+  @apply border-b-4 border-secondary;
+}
+
+
+html {
+  scroll-behavior: smooth; /* Native CSS smooth scrolling */
+}
+
+
+/* Custom Animation */
+@keyframes tiltSideways {
+0% {
+  transform: rotate(0deg);
+}
+50% {
+  transform: rotate(5deg); /* Tilt 30 degrees */
+}
+100% {
+  transform: rotate(0deg); /* Return to original position */
+}
+}
+
+@keyframes rotateAndMove-left-right {
+0% {
+  transform: translateX(-600px) rotate(0deg);
+  opacity: 0;
+}
+100% {
+  transform: translateX(-400px) rotate(90deg); /* Full rotation and move to the right */
+  @apply opacity-20;
+}
+}
+
+
+/* Apply animation */
+.moving-rotating-element {
+animation: rotateAndMove-left-right 2s ease-out forwards; /* Runs once, preserves end state */
+left: 0; /* Start from the left */
+top: -250px;
+transition: opacity 0.6s ease-in;
+}
+
+/* Image Styles */
+.tilt-image {
+animation: tiltSideways 3s alternate ease-in-out infinite;
+transform-origin: left bottom; /* Pivot point set to left bottom */
+}
